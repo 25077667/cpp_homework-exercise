@@ -18,7 +18,7 @@ int human_turn(int human_total_score) {
             cout << "Your total score might be add " << sum << endl;
         } else {
             sum = 0;
-            cout << "Your your result is 1." << endl;
+            cout << "Your roll result is 1." << endl;
             break;
         }
     }
