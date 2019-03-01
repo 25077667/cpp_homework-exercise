@@ -21,6 +21,6 @@ int main() {
         cout << "your mother? (in" << ((iof == 'i') ? "inch):" : "feet):");
         cin >> mother;
 
-        cout << ((iof == 'i') ? estimate(gender, father, mother) : (estimate(gender, conversion(father), conversion(mother))) / 12) << (iof == 'i') ? " inch." : " feet." << endl;
+        cout << ((iof == 'i') ? estimate(gender, father, mother) : (estimate(gender, conversion(father), conversion(mother))) / 12) << ((iof == 'i') ? " inch." : " feet.") << endl;
     }
 }
