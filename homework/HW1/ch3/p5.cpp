@@ -24,7 +24,8 @@ class info {
     int age;
 };
 int main() {
-    while (1) {
+    char tmp;
+    while (cout<<"y is continue, q is quit" && cin>>tmp && tmp == 'y') {
         info people;
         cout << "please input your height:";
         people.input_height();
