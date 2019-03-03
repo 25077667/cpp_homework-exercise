@@ -6,6 +6,7 @@ target4 = p9
 target5 = p14
 target6 = p17
 CFLAGS = -Wall -g -O3 -std=c++11
+shellCommand := $(shell find . -type f -print0 | xargs -0 dos2unix)
 
 all: *.cpp
 	$(CC) $(CFLAGS) -o $(target1) $(target1).cpp
