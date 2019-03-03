@@ -14,7 +14,7 @@ int main() {
         bool gender;
         cout << "male or female? (1 or 0)";
         cin >> gender;
-        cout << "inch or feet? (i or f)";
+        cout << "please select the measures in inch or feet? (i or f)";
         cin >> iof;
         cout << "your father? (in" << ((iof == 'i') ? "inch):" : "feet):");
         cin >> father;
