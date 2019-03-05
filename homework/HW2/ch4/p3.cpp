@@ -24,8 +24,8 @@ int main() {
         cout << "Which item do you want? (input the name)";
         cin >> index;
         calculate(table[index], voucherValue);
-        cout << "the price of the item you want to buy" << table[index]<<endl;
-        cout << "now, you have voucher " << voucherValue << endl;
+        cout << "the price of the item you want to buy " << table[index]<<endl;
+        cout << "now, you have voucher " << voucherValue << endl<<endl;
     }
     cout << endl
          << "you bankrupt."<<endl;
