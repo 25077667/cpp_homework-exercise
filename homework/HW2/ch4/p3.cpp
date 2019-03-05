@@ -1,20 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
-void computeCoin(int coinValue, int& number, int& amountLeft) {
-    //the origin question ask me to use this
-    number = amountLeft / coinValue;
-    amountLeft -= number * coinValue;
+map<string, int> table;
+void calculate(int itemCode, int& voucherValue) {
+    if(itemCode > voucherValue){
+        cout << "Insufficient balance" << endl;
+        return;
+    }
+    voucherValue -= itemCode;
 }
 int main() {
-    int number, want;
-    cout << "Please input the mount you want to change from cents.";
-    cin >> want;
-    cout << want << " cents can be given as " << endl;
-    computeCoin(25, number, want);
-    cout << number << " quarter(s) ";
-    computeCoin(10, number, want);
-    cout << number << " dime(s) ";
-    computeCoin(1, number, want);
-    cout << number << " penny(pennies)."<<endl;
-    return main();
+    int voucherValue;
+    table["A"] = 10;
+    table["B"] = 20;
+    table["C"] = 30;
+    table["D"] = 40;
+    for (map<string, int>::iterator iter = table.begin(); iter != table.end(); iter++)
+        cout << iter->first << " " << iter->second << endl;
+
+    cout << "Please input your voucher.";
+    cin >> voucherValue;
+    while (voucherValue >= table["A"]) {
+        string index;
+        cout << "Which item do you want? (input the name)";
+        cin >> index;
+        calculate(table[index], voucherValue);
+        cout << "the price of the item you want to buy" << table[index]<<endl;
+        cout << "now, you have voucher " << voucherValue << endl;
+    }
+    cout << endl
+         << "you bankrupt."<<endl;
 }
