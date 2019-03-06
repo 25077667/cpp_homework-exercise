@@ -20,7 +20,6 @@ int main() {
         }
         int start, ending;
         convert_time(start_time, end_time, start, ending);
-        cout << start_time << " " << end_time << " " << start << " " << ending << endl;
         struct tm t1 = {0};
         struct tm t2 = {0};
         t1.tm_hour = start / 100;
