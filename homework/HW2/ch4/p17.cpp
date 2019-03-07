@@ -9,6 +9,7 @@ void readfile() {
     while (file >> name >> score) {
         table[name] = score;
     }
+    file.close();
 }
 double cal_avg() {
     int sum=0, counter = 0;
