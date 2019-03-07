@@ -20,7 +20,6 @@ int main() {
                 }
             memset(arr, 0, sizeof(arr));
         }
-        //cout << endl;
         cout << i << " " << sum/5000 << endl;
     }
     return 0;
