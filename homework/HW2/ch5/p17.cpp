@@ -7,8 +7,8 @@ void inputFile() {
     string rawData;
     unsigned int len = 0;
     while (file >> rawData) {
-        for (int i = 0; (unsigned int)i < rawData.length(); i++) {
-            if ((rawData[i] - '0') > 9 || (rawData[i] - '0')<0)
+        for (unsigned int i = 0; i < rawData.length(); i++) {
+            if ((rawData[i] - '0') > 9 || (rawData[i] - '0') < 0)
                 continue;
 
             arr[(rawData[i] - '0')]++;
@@ -16,7 +16,7 @@ void inputFile() {
         }
     }
     for (int i = 0; i < 10; i++)
-        cout << i << "\t" << arr[i] *1.0 / len << endl;
+        cout << i << "\t" << arr[i] * 1.0 / len << endl;
     file.close();
 }
 int main() {
