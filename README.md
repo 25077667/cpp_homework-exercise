@@ -4,7 +4,7 @@ C++ programming homework&amp;exercise at NSYSU
 
 exercise is in the course, homework is out of the course.
 
-maybe i would use this header "bits/stdc++.h", if you wnat to use it, please google.
+maybe i would use this header "bits/stdc++.h", if you want to use it, please google.
 
 if you have any more powerful way to slove any problems, welcome to pull requests.
 
