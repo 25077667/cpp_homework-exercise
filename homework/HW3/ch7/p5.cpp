@@ -1,6 +1,6 @@
 #include "bits/stdc++.h"
 using namespace std;
-int main() {
+int main() {  //this is Josephus Problem
     vector<int> v;
     int num, counter = 0;
     cout << "How many people of suitors?";
