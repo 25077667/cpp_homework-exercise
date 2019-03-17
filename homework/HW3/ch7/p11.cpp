@@ -3,13 +3,11 @@ using namespace std;
 class Player {
     string name;
     int score;
-
    public:
     Player(string Name, int Score) : name(Name), score(Score) {}
     int getScore() { return score; }
     string getName() { return name; }
 };
-
 void addNewPlayer(vector<Player> &playerList) {
     int s;
     string n;
@@ -21,20 +19,16 @@ void addNewPlayer(vector<Player> &playerList) {
     playerList.push_back(player1);
 }
 void printAllScore(vector<Player> &playerList) {
-    for (vector<Player>::iterator iter = playerList.begin(); iter != playerList.end(); iter++) {
+    for (vector<Player>::iterator iter = playerList.begin(); iter != playerList.end(); iter++)
         cout << (*iter).getName() << "\t" << (*iter).getScore() << endl;
-    }
 }
-
 vector<Player>::iterator searchPlayer(vector<Player> &playerList, string n) {
     vector<Player>::iterator iter;
-    for (iter = playerList.begin(); iter != playerList.end(); iter++) {
+    for (iter = playerList.begin(); iter != playerList.end(); iter++)
         if ((*iter).getName() == n)
             break;
-    }
     return iter;
 }
-
 void searchPlayerScore(vector<Player> &playerList) {
     string n;
     cout << "What player search for?";
