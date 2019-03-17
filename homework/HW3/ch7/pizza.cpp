@@ -1,7 +1,7 @@
 #include "pizza.h"
 Pizza::Pizza(std::string size, std::string type, int p, int c) : sizeOfPizza(size), typeOfPizza(type), pepperoniToppings(p), cheeseToppings(c) {}
 void Pizza::setPepperoniToppings(int numPepperoni) { pepperoniToppings = numPepperoni; }
-inline int Pizza::getPepperoniToppings() { return pepperoniToppings; }
+int Pizza::getPepperoniToppings() { return pepperoniToppings; }
 int Pizza::getCheeseToppings() { return cheeseToppings; }
 void Pizza::setCheeseToppings(int numCheese) { cheeseToppings = numCheese; }
 std::string Pizza::getSize() { return sizeOfPizza; }
