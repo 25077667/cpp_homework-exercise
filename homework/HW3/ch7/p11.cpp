@@ -39,17 +39,17 @@ void searchPlayerScore(vector<Player> &playerList) {
     string n;
     cout << "What player search for?";
     cin >> n;
-    vector<Player>::iterator iter = searchPlayer(playerList,n);
+    vector<Player>::iterator iter = searchPlayer(playerList, n);
     if (iter != playerList.end())
-        cout<< (*iter).getScore() <<endl;
+        cout << (*iter).getScore() << endl;
     else
         cout << "Not found" << endl;
 }
-void removePlayer(vector<Player> &playerList){
+void removePlayer(vector<Player> &playerList) {
     string n;
     cout << "Remove which player?";
     cin >> n;
-    vector<Player>::iterator iter = searchPlayer(playerList,n);
+    vector<Player>::iterator iter = searchPlayer(playerList, n);
     if (iter != playerList.end())
         playerList.erase(iter);
     else
