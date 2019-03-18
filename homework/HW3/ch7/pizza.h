@@ -2,8 +2,7 @@
 class Pizza {
    public:
     Pizza();
-    Pizza(std::string, std::string, int, int);
-    ~Pizza(){};
+    Pizza(std::string size, std::string type, int p, int c);
     int getPepperoniToppings();
     void setPepperoniToppings(int numPepperoni);
     int getCheeseToppings();
@@ -16,6 +15,7 @@ class Pizza {
     int computePrice();
 
    private:
-    int pepperoniToppings, cheeseToppings;
     std::string sizeOfPizza, typeOfPizza;
+    int pepperoniToppings, cheeseToppings;
+    
 };
