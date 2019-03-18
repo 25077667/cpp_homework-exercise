@@ -6,7 +6,7 @@ void output(int pounds, double ounces) {
 void calculating(double kg, double g) {
     //1 pound = 453.59237g
     double weight = kg * 1000 + g;//g
-    int pounds = weight / 453.5923;
+    int pounds = weight / 453.59237;
     output(pounds, (weight - pounds * 453.59237) * 0.0352739619);
 }
 void input() {
