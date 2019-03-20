@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 void output(int pounds, double ounces) {
-    cout << "it is " << pounds << "pounds and " << ounces << " ounces." << endl;
+    cout << "it is " << pounds << " pounds and " << ounces << " ounces." << endl;
 }
 void calculating(double kg, double g) {
-    //1 pound = 453.59237g
-    double weight = kg * 1000 + g;//g
-    int pounds = weight / 453.59237;
-    output(pounds, (weight - pounds * 453.59237) * 0.0352739619);
+    //2.2046 pound = 1 kg = 1000g
+    double weight = kg * 1000 + g;  //g
+    int pounds = (weight / 1000) * 2.2046;
+    output(pounds, (weight - pounds / 2.2046 * 1000) / 1000 * 2.2046 * 16);
 }
 void input() {
     double kg, g;
@@ -16,6 +16,7 @@ void input() {
     cout << "input g ";
     cin >> g;
     calculating(kg, g);
+    //cout<<kg<<" "<<g<<endl;
 }
 
 int main() {
