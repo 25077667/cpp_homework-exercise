@@ -13,5 +13,7 @@
         "string_view": "cpp",
         "iostream": "cpp",
         "iosfwd": "cpp"
-    }
+    },
+    "C_Cpp.autoAddFileAssociations": false,
+    "C_Cpp.intelliSenseCachePath": ""
 }
