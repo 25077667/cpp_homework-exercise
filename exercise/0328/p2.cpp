@@ -29,7 +29,7 @@ int orderSeat(bool canOrder) {
         return 1;
     } else {
         cout << "Booking Error" << endl;
-        return 0;
+        return 1;
     }
 }
 
