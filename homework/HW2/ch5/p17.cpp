@@ -8,9 +8,6 @@ void inputFile() {
     unsigned int len = 0;
     while (file >> rawData) {
         for (unsigned int i = 0; i < rawData.length(); i++) {
-            if ((rawData[i] - '0') > 9 || (rawData[i] - '0') < 0)
-                continue;
-
             arr[(rawData[i] - '0')]++;
             len++;
         }
