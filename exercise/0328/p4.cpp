@@ -17,23 +17,23 @@ void printMap(char* _map) {
 }
 
 int result(char* _map) {
-    if (_map[0] == _map[1] == _map[2] == 'O' ||
-        _map[3] == _map[4] == _map[5] == 'O' ||
-        _map[6] == _map[7] == _map[8] == 'O' ||
-        _map[0] == _map[3] == _map[6] == 'O' ||
-        _map[1] == _map[4] == _map[7] == 'O' ||
-        _map[2] == _map[5] == _map[8] == 'O' ||
-        _map[0] == _map[4] == _map[8] == 'O' ||
-        _map[2] == _map[4] == _map[6] == 'O')
+    if ((int)_map[0] + (int)_map[1] + (int)_map[2] == 3 * (int)'O' ||
+        (int)_map[3] + (int)_map[4] + (int)_map[5] == 3 * (int)'O' ||
+        (int)_map[6] + (int)_map[7] + (int)_map[8] == 3 * (int)'O' ||
+        (int)_map[0] + (int)_map[3] + (int)_map[6] == 3 * (int)'O' ||
+        (int)_map[1] + (int)_map[4] + (int)_map[7] == 3 * (int)'O' ||
+        (int)_map[2] + (int)_map[5] + (int)_map[8] == 3 * (int)'O' ||
+        (int)_map[0] + (int)_map[4] + (int)_map[8] == 3 * (int)'O' ||
+        (int)_map[2] + (int)_map[4] + (int)_map[6] == 3 * (int)'O')
         return 1;  //user win
-    else if (_map[0] == _map[1] == _map[2] == 'X' ||
-             _map[3] == _map[4] == _map[5] == 'X' ||
-             _map[6] == _map[7] == _map[8] == 'X' ||
-             _map[0] == _map[3] == _map[6] == 'X' ||
-             _map[1] == _map[4] == _map[7] == 'X' ||
-             _map[2] == _map[5] == _map[8] == 'X' ||
-             _map[0] == _map[4] == _map[8] == 'X' ||
-             _map[2] == _map[4] == _map[6] == 'X')
+    else if ((int)_map[0] + (int)_map[1] + (int)_map[2] == 3 * (int)'X' ||
+             (int)_map[3] + (int)_map[4] + (int)_map[5] == 3 * (int)'X' ||
+             (int)_map[6] + (int)_map[7] + (int)_map[8] == 3 * (int)'X' ||
+             (int)_map[0] + (int)_map[3] + (int)_map[6] == 3 * (int)'X' ||
+             (int)_map[1] + (int)_map[4] + (int)_map[7] == 3 * (int)'X' ||
+             (int)_map[2] + (int)_map[5] + (int)_map[8] == 3 * (int)'X' ||
+             (int)_map[0] + (int)_map[4] + (int)_map[8] == 3 * (int)'X' ||
+             (int)_map[2] + (int)_map[4] + (int)_map[6] == 3 * (int)'X')
         return 2;  //computer win
     else
         return 0;  //keep gaming
@@ -55,7 +55,7 @@ int userTurn(char*(&_map), vector<int>& selection) {
 }
 
 int computerTurn(char*(&_map), vector<int>& selection) {
-    vector<int>::iterator iter = selection.begin() + getRandomNumber(selection.size());
+    vector<int>::iterator iter = selection.begin() + getRandomNumber(selection.size()-1);
     int num = *iter;
     selection.erase(iter);
     _map[num] = 'X';
@@ -73,18 +73,19 @@ int main() {
     while (1) {
         printMap(jiugonggeMap);
         int userResult = userTurn(jiugonggeMap, selection);
-        //cout<<userResult<<endl;
         if (userResult == -1)
             continue;
         else if (userResult == 1) {
             cout << "you win" << endl;
             break;
-        }
+        } else if (*selection.begin() == 999) {
+            cout << "draw" << endl;
+            break;
+        }        
         if (computerTurn(jiugonggeMap, selection) == 2) {
             cout << "computer win" << endl;
             break;
         }
     }
-
     return 0;
 }
