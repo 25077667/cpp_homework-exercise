@@ -3,11 +3,11 @@ using namespace std;
 
 class Salary {
    public:
-    double getPay() { return pay; }
-    int getTime() { return unitTime; }
+    inline double getPay() { return pay; }
+    inline int getTime() { return unitTime; }
     void setDays();
     void setPay();
-    void setTime(){unitTime = pay / 140;}
+    void setTime() { unitTime = pay / 140; }
 
    private:
     int days[7] = {0};
