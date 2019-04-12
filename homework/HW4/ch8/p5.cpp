@@ -1,81 +1,37 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-class Array {
+class Vector2D {
    public:
-    Array();
-    Array(int sz);
-    Array(int length, char elemant);
-    ~Array();
-    inline const int getSize();
-    void setSize(const int sz);
-    void setElement(char element);
-    void clear();
-    char& operator[](const int place);
-    friend ostream& operator<<(ostream& output, const Array& thisArray);
-    friend istream& operator>>(istream& input, Array& thisArray);
+    Vector2D(int, int);
+    ~Vector2D();
+    inline const pair<int, int>& getPair();
+    friend const int operator*(const Vector2D& a, const Vector2D& b);
+    friend ostream& operator<<(ostream& output, const Vector2D& thisVector2D);
 
    private:
-    int size;
-    char data[100];
+    pair<int, int> p;
 };
 int main() {
-    Array newArray(10);
-    cout << "Default output (10):" << newArray;
-    newArray.clear();
-    while (1) {
-        cout << "First sz member of the char array to";
-        cin >> newArray;
-        cout << newArray;
-        newArray.clear();
-    }
+    Vector2D a1(9, 10), a2(17, 0);
+    cout << a1 << " * " << a2 << " = " << a1 * a2 << endl;
+    Vector2D b1(10, 12), b2(0, 8);
+    cout << b1 << " * " << b2 << " = " << b1 * b2 << endl;
+    Vector2D c1(19, 13), c2(7, 20);
+    cout << c1 << " * " << c2 << " = " << c1 * c2 << endl;
     return 0;
 }
-Array::Array() {
-    memset(data, '\0', 100);
+Vector2D::Vector2D(int x, int y) {
+    p.first = x;
+    p.second = y;
 }
-Array::Array(int sz) {
-    size = sz;
-    memset(data, '#', sz);
+Vector2D::~Vector2D() {}
+const pair<int, int>& Vector2D::getPair() {
+    return p;
 }
-Array::Array(int sz, char elements) {
-    size = sz;
-    memset(data, '\0', 100);
-    memset(data, elements, sz);
+const int operator*(const Vector2D& a, const Vector2D& b) {
+    return a.p.first * b.p.first + a.p.second * b.p.second;
 }
-Array::~Array() {}
-inline const int Array::getSize() {
-    return size;
-}
-void Array::setSize(const int sz) {
-    size = sz;
-}
-void Array::setElement(char element) {
-    memset(data, element, size);
-}
-void Array::clear() {
-    memset(data, '\0', 100);
-    size = 0;
-    cout << "-----clear array-----" << endl;
-}
-char& Array::operator[](const int place) {
-    if (place < 0 || place > size) {
-        cout << "index error" << endl;
-        exit(1);
-    }
-    return data[place];
-}
-ostream& operator<<(ostream& output, const Array& thisArray) {
-    for (int i = 0; i < thisArray.size; i++)
-        output << thisArray.data[i];
-    output << endl
-           << "Size: " << thisArray.size << endl;
+ostream& operator<<(ostream& output, const Vector2D& thisVector2D) {
+    output << "(" << thisVector2D.p.first << "," << thisVector2D.p.second << ")";
     return output;
-}
-istream& operator>>(istream& input, Array& thisArray) {
-    char element, trash;
-    int sz;
-    input >> element >> trash >> sz;
-    thisArray.setSize(sz);
-    thisArray.setElement(element);
-    return input;
 }
