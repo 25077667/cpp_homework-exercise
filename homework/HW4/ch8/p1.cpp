@@ -65,7 +65,6 @@ int Money::centsPart(double amount) const {
 int Money::round(double number) const {
     return int(floor(number + 0.5));
 }
-
 Money::Money() {
     dollars = cents = 0;
 }
