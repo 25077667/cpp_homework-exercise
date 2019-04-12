@@ -4,7 +4,6 @@ class Vector2D {
    public:
     Vector2D(int, int);
     ~Vector2D();
-    inline const pair<int, int>& getPair();
     friend const int operator*(const Vector2D& a, const Vector2D& b);
     friend ostream& operator<<(ostream& output, const Vector2D& thisVector2D);
 
@@ -25,9 +24,6 @@ Vector2D::Vector2D(int x, int y) {
     p.second = y;
 }
 Vector2D::~Vector2D() {}
-const pair<int, int>& Vector2D::getPair() {
-    return p;
-}
 const int operator*(const Vector2D& a, const Vector2D& b) {
     return a.p.first * b.p.first + a.p.second * b.p.second;
 }
