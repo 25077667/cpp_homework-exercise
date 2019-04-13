@@ -5,7 +5,7 @@ class Temperature {
     Temperature(){};
     ~Temperature(){};
     void setF(double value);
-    friend const bool operator==(const Temperature& a, const Temperature& b);
+    friend inline const bool operator==(const Temperature& a, const Temperature& b);
     friend ostream& operator<<(ostream& output, const Temperature& thisTemperature);
 
    private:
