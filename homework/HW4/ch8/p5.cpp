@@ -16,7 +16,7 @@ int main() {
     cout << a1 << " * " << a2 << " = " << a1 * a2 << endl;
     Vector2D b1(10, 12), b2(0, 8);
     cout << b1 << " * " << b2 << " = " << b1 * b2 << endl;
-    Vector2D c1(19, 13), c2(7, 20);
+    Vector2D c1(19, 13), c2(7, -20); //must an int smaller then 20
     cout << c1 << " * " << c2 << " = " << c1 * c2 << endl;
     return 0;
 }
