@@ -48,8 +48,10 @@ int main() {
 
     cout << "Your amount is " << yourMoney << endl
          << "My amonut is " << myMoney << endl;
-    cout << "Your amount is " << ((yourMoney >= myMoney) ? "" : "not ") << "greater than my amount." << endl
+    cout << "Your amount is " << ((yourMoney >= myMoney) ? "" : "not ") << "greater or equal than my amount." << endl
          << "The sum of our amount is " << ((yourMoney + myMoney > yourMoney - myMoney) ? "" : "not ") << "greater than the difference." << endl;
+    cout << "Your amount is " << ((yourMoney <= myMoney) ? "" : "not ") << "less or equal than my amount." << endl
+         << "The sum of our amount is " << ((yourMoney + myMoney < yourMoney - myMoney) ? "" : "not ") << "less than the difference." << endl;
     return 0;
 }
 int Money::dollarsPart(double amount) const {
