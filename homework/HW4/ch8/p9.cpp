@@ -45,7 +45,6 @@ BoxOfProduce& operator+(BoxOfProduce& a, BoxOfProduce& b) {
 std::ostream& operator<<(std::ostream& output, BoxOfProduce& thisBoxOfProduce) {
     output << "The box contains:";
     for (std::vector<std::string>::iterator iter = thisBoxOfProduce.contens.begin(); iter != thisBoxOfProduce.contens.end(); iter++)
-        output << " (" << iter - thisBoxOfProduce.contens.begin() + 1 << ")"
-               << " " << *iter;
+        output << " (" << iter - thisBoxOfProduce.contens.begin() + 1 << ") " << *iter;
     return output;
 }
