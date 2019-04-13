@@ -24,8 +24,12 @@ int main() {
 }
 void Temperature::setF(double value) {
     f = value;
-    c = (f - 32) * 5 / 9;
-    k = c + 273.15;
+    c = (f - 32) * 5 / 9;  //華氏轉攝氏
+    k = c + 273.15;        //攝氏轉克式，此行得到kelvin氏溫標
+    //此題請以kelvin氏溫標轉為華氏和攝氏溫標，詳細請看 sample
+    c = k - 273.15;
+    f = c * 9 / 5 + 32;
+    // 早安，這是不是很多此一舉呢？
 }
 const bool operator==(const Temperature& a, const Temperature& b) {
     return a.k == b.k;
