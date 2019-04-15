@@ -40,6 +40,6 @@ int main() {
     char tmp;
     do {
         operateString("");
-    } while (cout << "Do you want to keep going?(y/n)?" && cin >> tmp && tmp == 'y');
+    } while (cout << "Do you want to keep going? [y/n] " && cin >> tmp && tmp == 'y');
     return 0;
 }
