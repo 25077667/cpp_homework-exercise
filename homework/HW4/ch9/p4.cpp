@@ -6,7 +6,7 @@ void printHead(string s) {
 }
 void operateString(string s, size_t pos = 0) {
     vector<string> v;
-    cout << "Please input the string you wnat to convert." << endl;
+    cout << "Please input the string you want to convert." << endl;
     while (cin.peek() == '\n')
         cin.ignore(numeric_limits<streamsize>::max(), '\n');  //the '\n' will still in istream while the next time function calling, debug this '\n' for 30 minutes
     getline(cin, s);
