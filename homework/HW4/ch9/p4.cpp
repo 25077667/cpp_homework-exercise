@@ -10,7 +10,7 @@ void operateString(string s, size_t pos = 0) {
     while (cin.peek() == '\n')
         cin.ignore(numeric_limits<streamsize>::max(), '\n');  //the '\n' will still in istream while the next time function calling, debug this '\n' for 30 minutes
     getline(cin, s);
-    transform(s.begin(), s.end(), s.begin(), ::tolower);
+    //transform(s.begin(), s.end(), s.begin(), ::tolower);
     while ((pos = s.find(" ")) != string::npos) {
         v.push_back(s.substr(0, pos));
         s.erase(0, pos + 1);
