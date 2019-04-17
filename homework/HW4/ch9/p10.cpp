@@ -20,15 +20,16 @@ void cleanSS(stringstream& ss) {
 }
 class Trivia {
     void generateProblemSet(int defficult);
-    vector<pair<int, pair<int, string>>> problemSet;
+    vector<pair<int, pair<string, string>>> problemSet;
     int userScore = 0;
+    int totalScore = 0;
 
    public:
     Trivia(int defficult);
     void playGame();
-
     void setUserScore(int current) { userScore += current; };
     inline int getUserScore() { return userScore; };
+    inline int getTotalScore() { return totalScore; };
 };
 
 int main() {
@@ -41,7 +42,7 @@ int main() {
     }
     Trivia puzzle(defficult);
     puzzle.playGame();
-    cout << "It's end of this game, your total score is " << puzzle.getUserScore() << endl;
+    cout << "It's end of this game, your total score is " << puzzle.getUserScore() << " in "<< puzzle.getTotalScore() << endl;
     return 0;
 }
 Trivia::Trivia(int defficult) {
@@ -52,7 +53,7 @@ void Trivia::generateProblemSet(int defficult) {
     int numberOFproblems = abs(getRandom(defficult) % 5)+5;
     for (int i = 0; i < numberOFproblems; i++) {
         int a = getRandom(defficult), b = getRandom(defficult);
-        pair<int, pair<int, string>> newProblem;
+        pair<int, pair<string, string>> newProblem;
         stringstream ss;
         cleanSS(ss);
         ss << a;
@@ -63,17 +64,20 @@ void Trivia::generateProblemSet(int defficult) {
         ss >> tmp;
         newProblem.second.second += (" + " + tmp);  //problem string
         cleanSS(ss);
-        newProblem.second.first = a + b;                         //answer
+        ss << a+b;
+        ss >> tmp;
+        newProblem.second.first = tmp;                         //answer
         newProblem.first = (log10(abs(a)) + log10(abs(b))) * 2;  //score
+        totalScore += newProblem.first; 
         problemSet.push_back(newProblem);
     }
 }
 void Trivia::playGame() {
-    for (vector<pair<int, pair<int, string>>>::iterator iter = problemSet.begin(); iter != problemSet.end(); iter++) {
+    for (vector<pair<int, pair<string, string>>>::iterator iter = problemSet.begin(); iter != problemSet.end(); iter++) {
         cout << "Your current score is " << userScore << endl;
         cout << "Question (" << iter - problemSet.begin() + 1 << "/" << problemSet.end() - problemSet.begin() << "): " << endl
              << (*iter).second.second << " = ";
-        int userAnswer;
+        string userAnswer;
         cin >> userAnswer;
         if (userAnswer == (*iter).second.first) {
             setUserScore((*iter).first);
