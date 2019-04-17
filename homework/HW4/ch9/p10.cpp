@@ -23,7 +23,6 @@ class Trivia {
     vector<pair<int, pair<string, string>>> problemSet;
     int userScore = 0;
     int totalScore = 0;
-
    public:
     Trivia(int defficult);
     void playGame();
