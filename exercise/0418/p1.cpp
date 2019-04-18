@@ -35,10 +35,11 @@ int main() {
         people.push_back(newpeople);
     }
     for (vector<info>::iterator iter = people.begin(); iter != people.end(); iter++) {
-        cout << "the result is: " << iter->getDepartment() << endl
+        cout << "the result is: " << endl
+             << iter->getDepartment() << endl
              << iter->getGender() << endl
              << iter->getID() << endl
-             <<iter->getName()<<endl;
+             << iter->getName() << endl;
     }
     return 0;
 }
