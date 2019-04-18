@@ -19,14 +19,14 @@ void cleanSS(stringstream& ss) {
     ss.clear();
 }
 class Trivia {
+    void generateProblemSet(int defficult);
+    void setUserScore(int current) { userScore += current; };
     vector<pair<int, pair<string, string>>> problemSet;
     int userScore = 0;
     int totalScore = 0;
    public:
     Trivia(int defficult);
-    void generateProblemSet(int defficult);
     void playGame();
-    void setUserScore(int current) { userScore += current; };
     inline const int getUserScore() { return userScore; };
     inline const int getTotalScore() { return totalScore; };
 };
