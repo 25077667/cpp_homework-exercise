@@ -68,7 +68,7 @@ void arrangeAuthorName(string& fullName) {
             ;  //find the last word(thst is name)
         string name = fullName.substr(pos - fullName.begin(), fullName.length() - (pos - fullName.begin()));
 
-        //swap last name and (first initial, or first and second names of the composer)
+        //arrange last name and (first initial, or first and second names of the composer)
         if (pos == fullName.begin())
             fullName.erase(0, 1);  //only one word, erase ' '
         else {
