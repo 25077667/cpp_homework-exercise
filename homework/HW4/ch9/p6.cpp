@@ -14,19 +14,20 @@ void readfile(vector<string>& source) {
 }
 
 void removeNumbering(vector<string>& source) {
-    for (vector<string>::iterator iter = source.begin(); iter != source.end(); iter++) {
-        iter->erase(0, 3);  //pos 0~3
-    }
+    for (vector<string>::iterator iter = source.begin(); iter != source.end(); iter++)
+        for (string::iterator i = iter->begin(); i != iter->end(); i++) {
+            if (!isalpha(*i))
+                iter->erase(i--);
+            else
+                break;
+        }
 }
 
 void multiSpace_2_singleSpace(vector<string>& source) {
     for (vector<string>::iterator iter = source.begin(); iter != source.end(); iter++)
         for (string::iterator i = iter->begin(); i != iter->end(); i++)
-            if (*i == ' ' && *(i - 1) == ' ' && i != iter->begin()) {
-                iter->erase(i);
-                string::iterator tmp = i;
-                i = tmp - 1;
-            }
+            if (*i == ' ' && *(i - 1) == ' ')
+                iter->erase(i--);
 }
 
 void removeExtraMinusSign(vector<string>& source) {
@@ -35,17 +36,18 @@ void removeExtraMinusSign(vector<string>& source) {
             iter->pop_back();  // '-' in the end of string might let the next function broken
         }
         string::iterator pos = iter->find('-') + iter->begin();
-        for (string::iterator i = pos; i != iter->end(); i++) {
+        for (string::iterator i = pos; i != iter->end(); i++)
             if (*i == '-' && i > pos) {
                 iter->erase(pos);
-                pos = i - 1;
-                i = pos;
+                pos = --i;
             }
-        }
+
         // the d request
         pos = iter->find('-') + iter->begin();
         if (*(pos - 1) != ' ')
             iter->insert(pos, ' ');
+        if (*(pos + 1) != ' ')
+            iter->insert(pos + 1, ' ');  //behind the '-' also need ' '
     }
 }
 
@@ -55,7 +57,6 @@ void exchangeSongAndNames(vector<string>& source) {
         string song = iter->substr(0, pos - 1), author = iter->substr(pos + 1, iter->length() - pos);
         arrangeAuthorName(author);
         (*iter) = author + " - " + song;
-        //cout << (*iter) << endl;
     }
 }
 
@@ -86,7 +87,7 @@ int main() {
     multiSpace_2_singleSpace(origin);
     removeExtraMinusSign(origin);
     exchangeSongAndNames(origin);
-    sort(origin.begin(), origin.end()); //原來 sort 即可
+    sort(origin.begin(), origin.end());  //原來 sort 即可
     for (vector<string>::iterator iter = origin.begin(); iter != origin.end(); iter++) {
         cout << *iter << endl;
     }
