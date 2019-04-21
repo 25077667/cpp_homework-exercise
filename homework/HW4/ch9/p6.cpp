@@ -3,10 +3,10 @@ using namespace std;
 void arrangeAuthorName(string& fullName);
 
 void readfile(vector<string>& source) {
-    string tmp;
+    string rawString;
     ifstream file("list.txt", ifstream::in);
-    while (getline(file, tmp)) {
-        source.push_back(tmp);
+    while (getline(file, rawString)) {
+        source.push_back(rawString);
         while (file.peek() == '\n')
             file.ignore(numeric_limits<streamsize>::max(), '\n');  //remove all '\n'
     }
