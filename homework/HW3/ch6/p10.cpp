@@ -28,6 +28,9 @@ class Weight {
         kg = p / 2.21;
         show();
     }
+    double getKG() { return kg; }
+    double getP() { return p; }
+    double getO() { return o; }
 };
 int main() {
     Weight w;
