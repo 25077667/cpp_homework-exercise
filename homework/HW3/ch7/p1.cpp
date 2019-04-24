@@ -11,6 +11,12 @@ class RainbowColor {
     void testColor(char);
     int getColorByName();
     bool nextColorNum();
+    void printInt(int value) {
+        cout << value;
+    }
+    void printChar(char c) {
+        cout << c;
+    }
 };
 int main() {
     RainbowColor rainbowA(1), rainbowB('R');
@@ -86,7 +92,11 @@ int RainbowColor::getColorByName() {
         return 0;
     }
     int index = p - colorTable + 1;
-    cout << "current " << index << "\t" << inputChar << endl;
+    cout << "current ";
+    printInt(index);
+    cout << "\t";
+    printChar(inputChar);
+    cout << endl;
     return index;
 }
 bool RainbowColor::nextColorNum() {
@@ -96,7 +106,12 @@ bool RainbowColor::nextColorNum() {
         cout << "next 1\tR" << endl;
     else if (index == 0)
         return 0;
-    else
-        cout << "next " << index+1 << "\t" << colorTable[index] << endl;
+    else {
+        cout << "next ";
+        printInt(index + 1);
+        cout << "\t";
+        printChar(colorTable[index]);
+        cout << endl;
+    }
     return true;
 }
