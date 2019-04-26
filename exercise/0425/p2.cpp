@@ -7,21 +7,14 @@ class Record {
    public:
     static int counter;
     Record(string, string);
-    ~Record();
     const string getName() { return name; }
     const string getBirthday() { return birthday; }
     int getCounter() { return counter; }
 };
 
-Record::Record(string n, string b) {
-    name = n;
-    birthday = b;
+Record::Record(string n, string b) : name(n), birthday(b) {
     counter++;
 }
-
-Record::~Record() {
-}
-
 int Record::counter = 0;
 
 int main() {
