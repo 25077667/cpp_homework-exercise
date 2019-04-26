@@ -1,73 +1,67 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-class date {
-   private:
-    string d;
-    int m;
 
-   public:
-    void add() {
-        cin >> d >> m;
-    }
-    void print() {
-        cout << d << " " << m << endl;
-    }
-    string getd() {
-        return d;
-    }
-    int getm() {
-        return m;
-    }
+struct Date {
+    int year, month, day;
 };
 
-void search(vector<date> &x) {
-    vector<date>::iterator p;
-    string a;
-    cout << "input: ";
-    cin >> a;
-    for (p = x.begin(); p != x.end(); p++) {
-        if (p->getd() == a) {
-            cout << p->getm() << endl;
-            return;
+class Accounting {
+   private:
+    Date date;
+    int value;
+
+   public:
+    Accounting(Date d, int v) : date(d), value(v) {}
+    const Date getDate() { return date; }
+    const int getValue() { return value; }
+    friend inline const bool operator==(const Date d1, const Date d2);
+    friend ostream& operator<<(ostream& output, const Accounting current);
+};
+inline const bool operator==(const Date d1, const Date d2) {
+    return (d1.year == d2.year && d1.month == d2.month && d1.day == d2.day);
+}
+ostream& operator<<(ostream& output, const Accounting current) {
+    output << current.date.year << "-" << current.date.month << "-" << current.date.day << "\t" << current.value;
+    return output;
+}
+void search(vector<Accounting> listAll, const Date want) {
+    vector<Accounting>::iterator iter = listAll.begin();
+    bool isfound = false;
+    for (; iter != listAll.end(); iter++)
+        if (iter->getDate() == want) {
+            cout << *iter << endl;
+            isfound = true;
         }
-    }
-    cout << "no found" << endl;
+    if (!isfound)
+        cout << "Not found" << endl;
+}
+void printAll(vector<Accounting> v) {
+    for (vector<Accounting>::iterator iter = v.begin(); iter != v.end(); iter++)
+        cout << *iter << endl;
 }
 int main() {
-    date cache;
-    vector<date> data;
-    vector<date>::iterator p;
-    bool r = true;
-    while (r) {
-        int flag;
-        cout << "1.add data" << endl;
-        cout << "2.print" << endl;
-        cout << "3.search" << endl;
-        cout << "4.exit" << endl;
-        cin >> flag;
-        int g;
-        switch (flag) {
-            case 1:
-                cache.add();
-                data.push_back(cache);
-                break;
-            case 2:
-                g = 0;
-                for (p = data.begin(); p != data.end(); p++) {
-                    p->print();
-                    g += p->getm();
-                }
-                cout << "sum = " << g << endl;
-                break;
-            case 3:
-                search(data);
-                break;
-            case 4:
-                r = false;
-                break;
-            default:
-                break;
+    vector<Accounting> accountingList;
+    int selection;
+    string questionSet = "1. add data\n2. printAll\n3. Search for date\n4. exit\n";
+    while (cout << questionSet && cin >> selection && selection != 4) {
+        if (selection == 1) {
+            Date newDate;
+            int value;
+            cout << "Please input you want to record (eg. yyyy mm dd value)" << endl;
+            cin >> newDate.year >> newDate.month >> newDate.day >> value;
+            Accounting newRecord(newDate, value);
+            accountingList.push_back(newRecord);
+        } else if (selection == 2) {
+            printAll(accountingList);
+        } else if (selection == 3) {
+            Date want;
+            cout << "Please input the day you want to search (eg. yyyy mm dd)" << endl;
+            cin >> want.year >> want.month >> want.day;
+            search(accountingList, want);
+        } else {
+            cout << "select error number" << endl;
         }
     }
+    return 0;
 }
