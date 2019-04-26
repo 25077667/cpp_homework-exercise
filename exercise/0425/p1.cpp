@@ -10,21 +10,18 @@ class Date {
    public:
     Date(int y = 0, int m = 0, int d = 0) : year(y), mon(m), day(d) {}
     void intput() {
-        cout << "data input\n";
+        cout << "data input ";
         cin >> year >> mon >> day;
     }
     void output() {
-        cout << "data output\n";
+        cout << "data output ";
         cout << year << ' ' << mon << ' ' << day << endl;
     }
-    friend bool operator==(const Date &d1, const Date &d2);
+    friend bool operator==(const Date d1, const Date d2);
 };
 
-bool operator==(const Date &d1, const Date &d2) {
-    if (d1.year == d2.year && d1.mon == d2.mon && d1.day == d2.day)
-        return true;
-    else
-        return false;
+bool operator==(const Date d1, const Date d2) {
+    return (d1.year == d2.year && d1.mon == d2.mon && d1.day == d2.day);
 }
 
 int main() {
@@ -35,10 +32,6 @@ int main() {
 
     d1.output();
     d2.output();
-
-    if (d1 == d2)
-        cout << "Comparsion Result : the same \n";
-    else
-        cout << "Comparison Result : different \n";
+    cout << "Comparsion Result : " << ((d1==d2)?"the same.":"different")<<endl;
     return 0;
 }
