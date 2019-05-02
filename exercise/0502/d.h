@@ -10,7 +10,7 @@ class Date {
     friend bool operator==(Date d1, Date d2);
     const friend Date operator+(Date& d1, int value);
     const friend int operator-(Date d1, Date d2);
-    void normalizeDate(Date& d);
+    void normalizeDate();
     void setYear(int value) { year = value; }
     void setMonth(int value) { month = value; }
     void setDay(int value) { day = value; }
@@ -18,26 +18,26 @@ class Date {
     int getMonth() { return month; }
     int getDay() { return day; }
 };
-void Date::normalizeDate(Date& d) {
-    if (d.month == 2 && d.day > 28) {
-        d.month ++;
-        d.day -= 28;
-        normalizeDate(d);
+void Date::normalizeDate() {
+    if (this->month == 2 && this->day > 28) {
+        this->month ++;
+        this->day -= 28;
+        normalizeDate();
     }
-    if ((d.month == 1 || d.month == 3 || d.month == 5 || d.month == 7 || d.month == 8 || d.month == 10 || d.month == 12) && d.day > 31) {
-        d.month ++;
-        d.day -= 31;
-        normalizeDate(d);
+    if ((this->month == 1 || this->month == 3 || this->month == 5 || this->month == 7 || this->month == 8 || this->month == 10 || this->month == 12) && this->day > 31) {
+        this->month ++;
+        this->day -= 31;
+        normalizeDate();
     }
-    if ((d.month == 4 || d.month == 6 || d.month == 9 || d.month == 11) && d.day > 30) {
-        d.month ++;
-        d.day -= 30;
-        normalizeDate(d);
+    if ((this->month == 4 || this->month == 6 || this->month == 9 || this->month == 11) && this->day > 30) {
+        this->month ++;
+        this->day -= 30;
+        normalizeDate();
     }
-    if (d.month > 12) {
-        d.year += d.month / 12;
-        d.month %= 12;
-        normalizeDate(d);
+    if (this->month > 12) {
+        this->year += this->month / 12;
+        this->month %= 12;
+        normalizeDate();
     }
 }
 bool operator>(Date d1, Date d2) {
@@ -51,7 +51,7 @@ bool operator==(Date d1, Date d2) {
 }
 const Date operator+(Date& d1, int value) {
     d1.day += value;
-    d1.normalizeDate(d1);
+    d1.normalizeDate();
     return Date(d1.year, d1.month, d1.day);
 }
 const int operator-(Date d1, Date d2) {
