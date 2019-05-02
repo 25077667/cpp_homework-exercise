@@ -20,16 +20,19 @@ class Date {
 };
 void Date::normalizeDate(Date& d) {
     if (d.month == 2 && d.day > 28) {
-        d.month += d.day / 28;
-        d.day %= 28;
+        d.month ++;
+        d.day -= 28;
+        normalizeDate(d);
     }
     if ((d.month == 1 || d.month == 3 || d.month == 5 || d.month == 7 || d.month == 8 || d.month == 10 || d.month == 12) && d.day > 31) {
-        d.month += d.day / 31;
-        d.day %= 31;
+        d.month ++;
+        d.day -= 31;
+        normalizeDate(d);
     }
     if ((d.month == 4 || d.month == 6 || d.month == 9 || d.month == 11) && d.day > 30) {
-        d.month += d.day / 30;
-        d.day %= 30;
+        d.month ++;
+        d.day -= 30;
+        normalizeDate(d);
     }
     if (d.month > 12) {
         d.year += d.month / 12;
