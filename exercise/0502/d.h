@@ -3,6 +3,7 @@ class Date {
     int year, month, day;
 
    public:
+    Date(){};
     Date(int y, int m, int d) : year(y), month(m), day(d) {}
     friend bool operator>(Date d1, Date d2);
     friend bool operator<(Date d1, Date d2);
@@ -10,6 +11,12 @@ class Date {
     const friend Date operator+(Date& d1, int value);
     const friend int operator-(Date d1, Date d2);
     void normalizeDate(Date& d);
+    void setYear(int value) { year = value; }
+    void setMonth(int value) { month = value; }
+    void setDay(int value) { day = value; }
+    int getYear() { return year; }
+    int getMonth() { return month; }
+    int getDay() { return day; }
 };
 void Date::normalizeDate(Date& d) {
     if (d.month == 2 && d.day > 28) {
