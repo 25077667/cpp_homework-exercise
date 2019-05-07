@@ -89,7 +89,7 @@ int main() {
     exchangeSongAndNames(origin);
     sort(origin.begin(), origin.end());  //原來 sort 即可
     for (vector<string>::iterator iter = origin.begin(); iter != origin.end(); iter++) {
-        cout << *iter << endl;
+        cout << (iter - origin.begin())+1 << ". " << *iter << endl;
     }
     return 0;
 }
