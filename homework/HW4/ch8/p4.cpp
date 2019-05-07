@@ -58,7 +58,7 @@ void Array::clear() {
     cout << "-----clear array-----" << endl;
 }
 char& Array::operator[](const int place) {
-    if (place < 0 || place > size) {
+    if (place < 0 || place >= size) {
         cout << "index error" << endl;
         exit(1);
     }
