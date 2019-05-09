@@ -3,7 +3,8 @@ using namespace std;
 int main() {
     string s;
     cout << " 0 or - is exit." << endl;
-
+    while(cin.peek() == '\n')
+        cin.ignore();
     while (cin.peek() == '0' || cin.peek() == '-')
         exit(0);
     cin >> s;
