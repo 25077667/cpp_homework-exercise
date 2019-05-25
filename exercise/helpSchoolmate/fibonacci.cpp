@@ -18,7 +18,7 @@ int main() {
     storage[0] = 0;
     storage[2] = storage[1] = 1;
     f(storage, input);
-    for (int i = input; i <= input; i++)
+    for (int i = 0; i <= input; i++)
         std::cout << i << '\t' << storage[i] << std::endl;
     return 0;
 }
