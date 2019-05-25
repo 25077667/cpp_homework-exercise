@@ -24,7 +24,6 @@ string* receiveUserChannelList(int amounts) {
             cin.ignore();
         getline(cin, channelName);
         list[amounts] = channelName;
-        //cout << list[amounts - 1]<<endl;
     }
     return list;
 }
