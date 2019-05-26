@@ -111,7 +111,7 @@ const Money operator-(const Money& amount1, const Money& amount2) {
     int sumDollars = allCent1 - allCent2;
     int finalDallars = abs(sumDollars) / 100, finalCents = abs(sumDollars) % 100;
     if (sumDollars < 0) {
-        finalDallars = -finalCents;
+        finalDallars = -finalDallars;
         finalCents = -finalCents;
     }
     return Money(finalDallars, finalCents);
