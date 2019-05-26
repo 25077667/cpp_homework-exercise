@@ -16,7 +16,7 @@ class Array {
 
    private:
     int size;
-    char data[100];
+    char* data;
 };
 int main() {
     Array newArray(10);
@@ -31,18 +31,23 @@ int main() {
     return 0;
 }
 Array::Array() {
+    this->data = new char[100];
     memset(data, '\0', 100);
 }
 Array::Array(int sz) {
+    this->data = new char[100];
     size = sz;
     memset(data, '#', sz);
 }
 Array::Array(int sz, char elements) {
     size = sz;
-    memset(data, '\0', 100);
+    this->data = new char[sz+1];
     memset(data, elements, sz);
+    this->data[sz] = '\0';
 }
-Array::~Array() {}
+Array::~Array() {
+    delete[] this->data;
+}
 inline const int Array::getSize() {
     return size;
 }
@@ -50,10 +55,12 @@ void Array::setSize(const int sz) {
     size = sz;
 }
 void Array::setElement(char element) {
+    this->data = new char[size+1];
+    this->data[size] = '\0';
     memset(data, element, size);
 }
 void Array::clear() {
-    memset(data, '\0', 100);
+    delete[] this->data;
     size = 0;
     cout << "-----clear array-----" << endl;
 }
