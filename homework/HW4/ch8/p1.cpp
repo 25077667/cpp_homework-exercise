@@ -133,19 +133,11 @@ bool operator<(const Money& amount1, const Money& amount2) {
 }
 const Money Money::percents(int percentFigure) const {
     int allCent = dollars * 100 + cents;
-    allCent *=  percentFigure / 100;
+    allCent *= percentFigure / 100;
     return Money(allCent / 100, allCent % 100);
 }
 ostream& operator<<(ostream& output, const Money& amount) {
-    if (amount.dollars < 0 || amount.cents < 0)
-        output << "$-";
-    else
-        output << "$";
-    output << abs(amount.dollars) << ".";
-    if (abs(amount.cents) < 10)
-        output << "0" << abs(amount.cents);
-    else
-        output << abs(amount.cents);
+    output << '$' << ((amount.dollars < 0 || amount.cents < 0) ? "-" :"") << abs(amount.dollars) << "." << ((abs(amount.cents) < 10) ? "0" :"") << abs(amount.cents);
     return output;
 }
 istream& operator>>(istream& input, Money& amount) {
