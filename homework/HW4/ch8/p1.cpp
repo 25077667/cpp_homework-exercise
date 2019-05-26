@@ -100,7 +100,7 @@ const Money operator+(const Money& amount1, const Money& amount2) {
     int sumDollars = allCent1 + allCent2;
     int finalDallars = abs(sumDollars) / 100, finalCents = abs(sumDollars) % 100;
     if (sumDollars < 0) {
-        finalDallars = -finalCents;
+        finalDallars = -finalDallars;
         finalCents = -finalCents;
     }
     return Money(finalDallars, finalCents);
@@ -117,33 +117,23 @@ const Money operator-(const Money& amount1, const Money& amount2) {
     return Money(finalDallars, finalCents);
 }
 bool operator==(const Money& amount1, const Money& amount2) {
-    if (amount1.dollars == amount2.dollars && amount1.cents == amount2.cents)
-        return true;
-    return false;
+    return (amount1.dollars == amount2.dollars && amount1.cents == amount2.cents);
 }
 bool operator>=(const Money& amount1, const Money& amount2) {
-    if (amount1.dollars * 100 + amount1.cents >= amount2.dollars * 100 + amount2.cents)
-        return true;
-    return false;
+    return (amount1.dollars * 100 + amount1.cents >= amount2.dollars * 100 + amount2.cents);
 }
 bool operator<=(const Money& amount1, const Money& amount2) {
-    if (amount1.dollars * 100 + amount1.cents <= amount2.dollars * 100 + amount2.cents)
-        return true;
-    return false;
+    return (amount1.dollars * 100 + amount1.cents <= amount2.dollars * 100 + amount2.cents);
 }
 bool operator>(const Money& amount1, const Money& amount2) {
-    if (amount1.dollars * 100 + amount1.cents > amount2.dollars * 100 + amount2.cents)
-        return true;
-    return false;
+    return (amount1.dollars * 100 + amount1.cents > amount2.dollars * 100 + amount2.cents);
 }
 bool operator<(const Money& amount1, const Money& amount2) {
-    if (amount1.dollars * 100 + amount1.cents < amount2.dollars * 100 + amount2.cents)
-        return true;
-    return false;
+    return (amount1.dollars * 100 + amount1.cents < amount2.dollars * 100 + amount2.cents);
 }
 const Money Money::percents(int percentFigure) const {
     int allCent = dollars * 100 + cents;
-    allCent = allCent * percentFigure / 100;
+    allCent *=  percentFigure / 100;
     return Money(allCent / 100, allCent % 100);
 }
 ostream& operator<<(ostream& output, const Money& amount) {
