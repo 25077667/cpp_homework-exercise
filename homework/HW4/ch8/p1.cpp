@@ -137,7 +137,8 @@ const Money Money::percents(int percentFigure) const {
     return Money(allCent / 100, allCent % 100);
 }
 ostream& operator<<(ostream& output, const Money& amount) {
-    output << '$' << ((amount.dollars < 0 || amount.cents < 0) ? "-" :"") << abs(amount.dollars) << "." << ((abs(amount.cents) < 10) ? "0" :"") << abs(amount.cents);
+    output << '$' << ((amount.dollars < 0 || amount.cents < 0) ? "-" : "")
+           << abs(amount.dollars) << "." << ((abs(amount.cents) < 10) ? "0" : "") << abs(amount.cents);
     return output;
 }
 istream& operator>>(istream& input, Money& amount) {
