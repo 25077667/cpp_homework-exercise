@@ -7,16 +7,7 @@ class Television {
     Television(const Television&);
     ~Television();
 
-    int getSupportAmount() const {
-        int index = 0;
-        while (this->connectivitySupport) {
-            if (this->connectivitySupport[index] != "---The end of connectivity support---")
-                index++;
-            else
-                break;
-        }
-        return index;
-    }
+    int getSupportAmount() const ;
     void output();
     void setDisplayType();
     void setDimension();
@@ -106,6 +97,15 @@ Television::Television(const Television& source) {
 
 Television::~Television() {
     delete[] this->connectivitySupport;
+}
+
+int Television::getSupportAmount() const {
+    int index = 0;
+    while (this->connectivitySupport) {
+        if (this->connectivitySupport[index] == "---The end of connectivity support---")
+            return index;
+        index++;
+    }
 }
 
 void Television::output() {
