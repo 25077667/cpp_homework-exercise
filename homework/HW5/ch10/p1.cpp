@@ -92,9 +92,7 @@ const TwoD& operator+(const TwoD& a, const TwoD& b) {
 }
 
 TwoD& TwoD::operator=(const TwoD& source) {
-    if (this == &source)
-        return *this;
-    else {
+    if(this != &source) {
         for (int i = 0; i < this->Max_row; i++)
             delete[] this->arr[i];
         delete[] this->arr;
@@ -104,6 +102,7 @@ TwoD& TwoD::operator=(const TwoD& source) {
         this->arr = allocArray(this->Max_row, this->Max_row);
         memcpy(this->arr, source.arr, sizeof(double) * (this->Max_column) * (this->Max_row));
     }
+    return *this;
 }
 
 TwoD::~TwoD() {
