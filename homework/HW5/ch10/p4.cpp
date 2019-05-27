@@ -42,7 +42,8 @@ int main() {
     cout << "Person 1's data" <<endl;
     A.output();
 
-    Subscriber B = A;
+    Subscriber B = A;   //use copy constructor
+    B = A;  //use assignment operator
     cout << "Person 2's data after assignment from subscriber 1:" << endl;
     B.output();
 
