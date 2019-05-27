@@ -8,7 +8,12 @@ class TwoD {
     TwoD(const TwoD&);
     ~TwoD();
 
-    inline double& mutator(int row, int column) const { return arr[row][column]; };
+    double& mutator(int row, int column) const { return arr[row][column]; } 
+    /*
+    * set mutator function to be a const,
+    * such that this function cannot modify any value in this funtion area,
+    * but the return value can be read/write!!
+    */
     inline void setValue(int row, int column, int value) { this->arr[row][column] = value; }
     inline const int getColumn() const { return Max_column; }
     inline const int getRow() const { return Max_row; }
@@ -92,7 +97,7 @@ const TwoD& operator+(const TwoD& a, const TwoD& b) {
 }
 
 TwoD& TwoD::operator=(const TwoD& source) {
-    if(this != &source) {
+    if (this != &source) {
         for (int i = 0; i < this->Max_row; i++)
             delete[] this->arr[i];
         delete[] this->arr;
