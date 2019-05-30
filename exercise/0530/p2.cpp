@@ -13,7 +13,7 @@ int main() {
     cout << "row and col:" << endl;
     cin >> row >> col;
     int data[row][col] = {0};
-    memset(data, 0, sizeof(int)*row*col);
+    memset(data, 0, sizeof(int)*row*col);   
     cout << "nonzero: ";
     cin >> nonzero;
     for (int i = 0; i < nonzero; i++) {
