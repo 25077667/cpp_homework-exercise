@@ -12,14 +12,6 @@ int main() {
             cerr << "Error: " << strerror(errno);
             exit(1);
         }
-        
-        // read only on the current folder
-        // dirname is a linux system call in the libgen.h
-        if (dirname(const_cast<char*>(filename.c_str())) != ".") {
-            file.close();
-            cerr << "permission denied\n";
-            exit(1);
-        }
 
         long double summation = 0, inputNumber, counter = 0;
         while (file >> inputNumber) {
