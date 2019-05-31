@@ -16,6 +16,7 @@ int main() {
         // read only on the current folder
         // dirname is a linux system call in the libgen.h
         if (dirname(const_cast<char*>(filename.c_str())) != ".") {
+            file.close();
             cerr << "permission denied\n";
             exit(1);
         }
@@ -26,6 +27,7 @@ int main() {
             counter++;
         }
         cout << "Average of " << counter << " numbers in " << filename << " is " << summation / counter << endl;
+        file.close();
     }
     return 0;
 }
