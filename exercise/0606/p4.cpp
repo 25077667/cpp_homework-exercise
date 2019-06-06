@@ -3,7 +3,18 @@
 #include <queue>
 #include <stack>
 using namespace std;
-
+void selection_sort(int* arr, int n) {
+    for (int i = n - 1; i >= 0; i--) {
+        int index = i;
+        for (int j = 0; j < i; j++) {
+            if (arr[j] > arr[index])
+                index = j;
+        }
+        int tmp = arr[i];
+        arr[i] = arr[index];
+        arr[index] = tmp;
+    }
+}
 int main() {
     ifstream in1("seq1"), in2("seq2");
     priority_queue<int> pq;
