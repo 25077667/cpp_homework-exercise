@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    int tmp, counter = 1, max = -999, max_index = 0;
+    int tmp, counter = 0, max = -999, max_index = 0;
     ifstream fin("temp");
     while (fin >> tmp) {
         counter++;
