@@ -127,7 +127,7 @@ ostream& operator<<(ostream& outstream, const Student& source) {
     return outstream;
 }
 
-ScienceStudent::ScienceStudent() : discipline(""), studentType(""), Student() {}
+ScienceStudent::ScienceStudent() : Student(), studentType(""), discipline("") {}
 ScienceStudent::ScienceStudent(string theStudentName, string theUniversityName, string theRegistrationNumber, string theStudentType, string theDiscipline)
     : Student(theRegistrationNumber, theUniversityName, theStudentName) {
     this->studentType = theStudentType;
