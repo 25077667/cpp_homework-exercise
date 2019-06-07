@@ -11,9 +11,9 @@ Node* addNewNode(Node* root, int value) {
     newNode->value = value;
     newNode->left = newNode->right = nullptr;
 
-    if (root == nullptr) {
+    if (root == nullptr)
         root = newNode;
-    } else {
+    else {
         Node *current = root, *next = root;
         bool isRight = false;
         do {
