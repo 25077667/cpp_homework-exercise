@@ -41,7 +41,6 @@ pair<int, int>& modifyRange(pair<int, int>& range, int guess, int result) {
         range.second = guess;
     else
         range.first = guess;
-    //cout << range.first << "\t" << range.second << endl;
     return range;
 }
 
@@ -56,7 +55,6 @@ int checkForWin(int guess, int answer) {
         cout << "Your guess is too low." << endl;
         return -1;
     }
-    return false;
 }
 
 void play(Player& player1, Player& player2) {
