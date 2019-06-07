@@ -39,7 +39,7 @@ class BlogOwner : public Blog {
         cout << "Posted" << endl;
     }
     void deleteMsg() {
-        int index;
+        unsigned int index;
         cout << "Which message you want ot delete?" << endl;
         cin >> index;
         if (index > msg.size() || index < 0)
@@ -76,7 +76,7 @@ int main() {
     BlogOwner owner;
     int selection;
     cout << "First enter data as the owner." << endl;
-    while (selection = owner.operateManager()) {
+    while ((selection = owner.operateManager())) {
         if (selection == 1)
             owner.viewPost();
         else if (selection == 2)
@@ -88,7 +88,7 @@ int main() {
     }
     BlogViewer guest = owner;
     cout << "Access data as viewer" << endl;
-    while(selection = guest.operateManager()){
+    while((selection = guest.operateManager())){
         if(selection == 1)
             guest.viewPost();
         else
