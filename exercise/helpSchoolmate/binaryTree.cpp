@@ -55,9 +55,8 @@ void postTraversal(Node* current) {
 int main() {
     Node* root = nullptr;
     int tmp;
-    while (cout << "Please input a number: " && cin >> tmp && tmp > 0) {
+    while (cout << "Please input a number: " && cin >> tmp && tmp > 0) 
         root = addNewNode(root, tmp);
-    }
     cout << "Sorted!" << endl;
     inorderTraversal(root);
     cout << endl;
