@@ -9,12 +9,71 @@ using namespace std;
 // ----- ENTER YOUR CODE HERE -----
 // --------------------------------
 
+class Player{
+	public:
+		int getScore(){return score;}
+		string getName(){return name;}
+		void setScore(int s){score = s;}
+		void setName(string n){name = n;}
+	private:
+		int score;
+		string name;
+};
+
+
+void addPlayer(int n, vector<Player>& v){
+	Player newPlayer;
+	int s;
+	string name;
+	cout << "Pleace enter a Player's name.";
+	cin >> name;
+	cout << "Pleace enter a Player's score.";
+	cin >> s;
+	newPlayer.setName(name);
+	newPlayer.setScore(s);
+	v.push_back(newPlayer);
+}
+void printPlayer(int n, vector<Player>& v){
+	cout << "Player Scores" << endl;
+	for(vector<Player>::iterator iter = v.begin(); iter != v.end() ; iter++)
+		cout << iter->getName() << "\t" << iter->getScore() << endl;
+}
+void searchPlayer(int n, vector<Player>& v){
+	bool isfound = false;
+	string want;
+	cout << "Witch player to search for?" <<endl;
+	cin >> want;
+	for(vector<Player>::iterator iter = v.begin(); iter != v.end() ; iter++){
+		if(iter->getName() == want){
+			cout << "The score for "<< iter->getName() 
+			     << " is " << iter->getScore() <<endl;
+			isfound = true;
+		}
+	}
+	if(isfound == false)
+		cout << "Not found" <<endl;
+}
+void removePlayer(int n, vector<Player>& v){
+	bool isfound = false;
+	string want;
+	cout << "Witch player to remove?" <<endl;
+	cin >> want;
+	for(vector<Player>::iterator iter = v.begin(); iter != v.end() ; iter++){
+		if(iter->getName() == want){
+			v.erase(iter);
+			isfound = true;
+		}
+	}
+	if(isfound == false)
+		cout << "Not found" <<endl;
+}
 
 // --------------------------------
 // --------- END USER CODE --------
 // --------------------------------
 
 // You cannot change this part of code
+
 int main()
 {
   char option;
