@@ -10,9 +10,11 @@ int main() {
     allPokemon.push_back(water);
     allPokemon.push_back(wood);
     allPokemon.push_back(fire);
-    for (vector<Pokemon*>::iterator iter = allPokemon.begin(); iter != allPokemon.end(); iter++)
-        for (int i = 0; i < 3; i++) {
-            cout << (*iter)[i].showDetail << endl;
+    //cout << (allPokemon.at(0) == water) << endl;
+    for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++) {
+            //allPokemon[i][j].showDetail();
+            cout << &(allPokemon.at(i)[j]) << endl;
         }
 
     return 0;

@@ -8,8 +8,8 @@ class Pokemon {
     double getAtk() const { return this->atk; }
     double getHP() const { return this->hp; }
     void minusHP(double val) { this->hp -= val; }
-    string getAttributes(){};
-    void showDetail() {}
+    virtual string getAttributes() = 0;
+    virtual void showDetail()=0;
 
    private:
     string name;
