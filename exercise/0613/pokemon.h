@@ -9,7 +9,7 @@ class Pokemon {
     double getHP() const { return this->hp; }
     void minusHP(double val) { this->hp -= val; }
     virtual string getAttributes() = 0;
-    virtual void showDetail()=0;
+    virtual void showDetail() = 0;
 
    private:
     string name;
@@ -51,29 +51,30 @@ class Wood_Pokemon : public Pokemon {
 };
 
 double restrain(string A, string B) {
-    if (A == B) {
+    if (A == B)
         return 1;
-    } else if ((A == "fire" && B == "wood") ||
-               (A == "water" && B == "fire") ||
-               (A == "wood" && B == "water")) {
+    else if ((A == "fire" && B == "wood") ||
+             (A == "water" && B == "fire") ||
+             (A == "wood" && B == "water"))
         return 2;
-    } else {
+    else
         return 0.5;
-    }
 }
 
 void battle(Pokemon& A, Pokemon& B) {
-    while (A.getHP() > 0 || B.getHP() > 0) {
+    while (A.getHP() > 0 && B.getHP() > 0) {
         cout << A.getName() << " atk >> " << B.getName() << endl;
         double damage = A.getAtk() * restrain(A.getAttributes(), B.getAttributes());
         B.minusHP(damage);
         //check B die
         if (B.getHP() <= 0)
             break;
+        cout << A.getHP() << "\t" << B.getHP() << endl;
 
         cout << B.getName() << " atk >> " << A.getName() << endl;
         damage = B.getAtk() * restrain(B.getAttributes(), A.getAttributes());
         A.minusHP(damage);
+        cout << A.getHP() << "\t" << B.getHP() << endl;
     }
     cout << ((A.getHP() > 0) ? B.getName() : A.getName()) << " dead!" << endl;
 }
