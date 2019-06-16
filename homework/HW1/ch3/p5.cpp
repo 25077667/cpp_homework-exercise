@@ -3,9 +3,9 @@ using namespace std;
 class Info {
    public:
     Info() : height(0), weight(0), age(0) {}
-    double hat_size() { return weight / height * 2.9; };
-    double Jacket_size() { return height * weight / 288 + ((age > 30) ? (double)((int)((age - 30) / 10) * 0.125) : 0); };
-    double waist() { return weight / 5.7 + ((age > 28) ? (double)((int)((age - 28) / 2) * 0.1) : 0); };
+    double calculateHatSize() { return weight / height * 2.9; };
+    double calculateJacketSize() { return height * weight / 288 + ((age > 30) ? (double)((int)((age - 30) / 10) * 0.125) : 0); };
+    double calculateWaist() { return weight / 5.7 + ((age > 28) ? (double)((int)((age - 28) / 2) * 0.1) : 0); };
     friend istream& operator>>(istream& input, Info& people) {
         cout << "please input your height:";
         input >> people.height;
@@ -16,9 +16,9 @@ class Info {
         return input;
     }
     friend ostream& operator<<(ostream& output, Info& people) {
-        output << "Hat size = " << people.hat_size() << " in inches." << endl
-               << "Jacket size (chest in inches) = " << people.Jacket_size() << " (chest in inches)" << endl
-               << "Waist = " << people.waist() << " in inches." << endl;
+        output << "Hat size = " << people.calculateHatSize() << " in inches." << endl
+               << "Jacket size (chest in inches) = " << people.calculateJacketSize() << " (chest in inches)" << endl
+               << "Waist = " << people.calculateWaist() << " in inches." << endl;
         return output;
     }
 
