@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 int main() {
-    int milligrams_of_caffeine;
-    cout << "input the \"milligrams_of_caffeine\" in a line\n";
-    cin >> milligrams_of_caffeine;
-    cout << 10000 / milligrams_of_caffeine << endl;
+    int coffeine_mg;
+    cout << "input the \"milligrams of caffeine\" in a line\n";
+    cin >> coffeine_mg;
+    cout << 10000 / coffeine_mg << endl;
 }
