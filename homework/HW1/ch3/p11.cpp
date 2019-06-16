@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 bool dies_effect(int number) {
-    return ((number < 2) ? false : true);
+    return !(number < 2);
 }
 int get_random_number() {
     random_device rd;
@@ -22,7 +22,7 @@ int human_turn(int human_total_score) {
             break;
         }
     }
-    return human_total_score + sum;
+    return sum;
 }
 int computer_turn(int computer_total_score) {
     int sum = 0;
@@ -37,8 +37,7 @@ int computer_turn(int computer_total_score) {
             break;
         }
     }
-    computer_total_score += sum;
-    return computer_total_score;
+    return sum;
 }
 int main() {
     int human_total_score = 0, computer_total_score = 0;
@@ -46,13 +45,13 @@ int main() {
         cout << "Your current score is " << human_total_score << endl
              << "Computer current score is " << computer_total_score << endl;
 
-        human_total_score = human_turn(human_total_score);
+        human_total_score += human_turn(human_total_score);
         if (human_total_score >= 100) {
             cout << "You got " << human_total_score << ". You win!" << endl;
             break;
         }
 
-        computer_total_score = computer_turn(computer_total_score);
+        computer_total_score += computer_turn(computer_total_score);
         if (computer_total_score >= 100) {
             cout << "Computer got " << computer_total_score << ". Computer win!" << endl;
             break;
@@ -60,3 +59,6 @@ int main() {
     }
     return 0;
 }
+// i remainber that this code was deducted score by TA
+// because they said the origin problem says "add after return"
+// Fine.
