@@ -41,7 +41,7 @@ int computer_turn(int computer_total_score) {
 }
 int main() {
     int human_total_score = 0, computer_total_score = 0;
-    while (human_total_score < 100 && computer_total_score < 100) {
+    while (1) {
         cout << "Your current score is " << human_total_score << endl
              << "Computer current score is " << computer_total_score << endl;
 
