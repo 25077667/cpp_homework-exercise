@@ -9,7 +9,13 @@ class BoxOfProduce {
     std::vector<std::string> selection;
 
    public:
-    BoxOfProduce(){};
+    BoxOfProduce() {}
+    ~BoxOfProduce() {
+        selection.clear();
+        contens.clear();
+        selection.shrink_to_fit();
+        contens.shrink_to_fit();
+    }
     void initContens();
     void readFile();
     friend std::ostream& operator<<(std::ostream& output, BoxOfProduce& thisBoxOfProduce);
@@ -22,6 +28,7 @@ int main() {
     std::cout << box1 << std::endl
               << box2 << std::endl;
     std::cout << (box1 + box2) << std::endl;
+    return 0;
 }
 
 void BoxOfProduce::readFile() {
@@ -41,7 +48,6 @@ BoxOfProduce& operator+(BoxOfProduce& a, BoxOfProduce& b) {
         a.contens.push_back(*iter);
     return a;
 }
-
 std::ostream& operator<<(std::ostream& output, BoxOfProduce& thisBoxOfProduce) {
     output << "The box contains:";
     for (std::vector<std::string>::iterator iter = thisBoxOfProduce.contens.begin(); iter != thisBoxOfProduce.contens.end(); iter++)
