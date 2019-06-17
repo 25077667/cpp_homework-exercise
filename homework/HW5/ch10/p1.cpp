@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <cstring>
 #include <iostream>
 using namespace std;
@@ -8,13 +9,28 @@ class TwoD {
     TwoD(const TwoD&);
     ~TwoD();
 
-    double& mutator(int row, int column) const { return arr[row][column]; } 
-    /*
-    * set mutator function to be a const,
-    * such that this function cannot modify any value in this funtion area,
-    * but the return value can be read/write!!
-    */
-    inline void setValue(int row, int column, int value) { this->arr[row][column] = value; }
+    bool isOutOfRange(int row, int column) { return (row > Max_row || column > Max_column); }
+    double& at(int row, int column) {
+        if (isOutOfRange(row, column)) {
+            cerr << "index error" << endl;
+            exit(1);
+        }
+        return arr[row][column];
+    }
+    double getValue(int row, int column) const {
+        if (isOutOfRange(row, column)) {
+            cerr << "index error" << endl;
+            exit(1);
+        }
+        return this->arr[row][column];
+    }
+    void setValue(int row, int column, int value) {
+        if (isOutOfRange(row, column)) {
+            cerr << "index error" << endl;
+            exit(1);
+        }
+        this->arr[row][column] = value;
+    }
     inline const int getColumn() const { return Max_column; }
     inline const int getRow() const { return Max_row; }
 
@@ -29,7 +45,7 @@ class TwoD {
 void printTwoD(TwoD& current) {
     for (int i = 0; i < current.getRow(); i++) {
         for (int j = 0; j < current.getColumn(); j++)
-            cout << current.mutator(i, j) << " ";
+            cout << current.getValue(i, j) << " ";
         cout << endl;
     }
 }
@@ -43,7 +59,7 @@ int main() {
     cout << "Enter " << row << " rows of " << column << " doubles for each." << endl;
     for (int i = 0; i < row; i++)
         for (int j = 0; j < column; j++)
-            cin >> matrix1.mutator(i, j);
+            cin >> matrix1.at(i, j);
 
     cout << "Enter the row and column dimensions of the array" << endl;
     cin >> row >> column;
@@ -51,7 +67,7 @@ int main() {
     cout << "Enter " << row << " rows of " << column << " doubles for each." << endl;
     for (int i = 0; i < row; i++)
         for (int j = 0; j < column; j++)
-            cin >> matrix2.mutator(i, j);
+            cin >> matrix2.at(i, j);
 
     if (matrix1.getColumn() != matrix2.getColumn() || matrix1.getRow() != matrix2.getRow()) {
         cerr << "Input error!" << endl;
@@ -92,7 +108,7 @@ const TwoD& operator+(const TwoD& a, const TwoD& b) {
     TwoD* result = new TwoD(a);
     for (int i = 0; i < result->Max_row; i++)
         for (int j = 0; j < result->Max_column; j++)
-            result->setValue(i, j, a.mutator(i, j) + b.mutator(i, j));
+            result->setValue(i, j, a.getValue(i, j) + b.getValue(i, j));
     return *result;
 }
 
