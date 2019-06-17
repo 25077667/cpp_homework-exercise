@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-void printThis(char a) {
+void printChar(char a) {
     cout << a;
 }
 void stringOperation(string s) {
@@ -11,13 +11,13 @@ void stringOperation(string s) {
                 result = (((s.at(i) + 3) > 'Z') ? ((s.at(i) + 2) - 'Z' + 'A') : (s.at(i) + 3));
             else
                 result = (((s.at(i) + 3) > 'z') ? ((s.at(i) + 2) - 'z' + 'a') : (s.at(i) + 3));
-            printThis(result);
+            printChar(result);
         } else if (isdigit(s.at(i)))
-            printThis((((s.at(i) - '0') + 5) % 10) + '0');
+            printChar((((s.at(i) - '0') + 5) % 10) + '0');
         else if (s.at(i) == ' ')
             continue;
         else
-            printThis(' ');
+            printChar(' ');
     }
 }
 bool removeAllNewLine() {
