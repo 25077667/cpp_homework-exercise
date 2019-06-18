@@ -9,7 +9,7 @@ class TwoD {
     TwoD(const TwoD&);
     ~TwoD();
 
-    bool isOutOfRange(int row, int column) { return (row > Max_row || column > Max_column); }
+    bool isOutOfRange(int row, int column) const { return (row > Max_row || column > Max_column); }
     double& at(int row, int column) {
         if (isOutOfRange(row, column)) {
             cerr << "index error" << endl;

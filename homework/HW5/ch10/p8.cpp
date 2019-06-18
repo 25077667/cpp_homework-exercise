@@ -106,6 +106,7 @@ int Television::getSupportAmount() const {
             return index;
         index++;
     }
+    return 0;
 }
 
 void Television::output() {
@@ -147,4 +148,5 @@ Television& Television::operator=(const Television& source) {
         for (int i = 0; i < arraySize; i++)
             this->connectivitySupport[i] = source.connectivitySupport[i];
     }
+    return *this;
 }

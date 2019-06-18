@@ -98,5 +98,6 @@ Subscriber& Subscriber::operator=(const Subscriber& source) {
         this->channelList = new string[this->numChannels];
         for (int i = 0; i < this->numChannels; i++)
             this->channelList[i] = source.channelList[i];
+        return *this;
     }
 }
