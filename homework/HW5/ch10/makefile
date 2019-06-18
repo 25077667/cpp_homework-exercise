@@ -1,5 +1,5 @@
 cc = g++
-flags = -std=c++11 -o
+flags = -std=c++11 -Wall -O3 -Os -o
 
 target1 = p1
 target2 = p3
