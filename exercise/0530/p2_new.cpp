@@ -41,6 +41,10 @@ int main() {
 
     cout << "How many random numbers do you want to generate? ";
     cin >> randomNumbers;
+    if (randomNumbers > row * column) {
+        cerr << "infinite loop" << endl;
+        return(1);
+    }
     for (int i = 0; i < randomNumbers; i++) {
         int& place = arr[getRandom(row)][getRandom(column)];
         if (place)
