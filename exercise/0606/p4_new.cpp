@@ -25,6 +25,7 @@ int main() {
     vector<int> out(in1.size() + in2.size());
 
     merge(in1.begin(), in1.end(), in2.begin(), in2.end(), out.begin());
+    sort(out.begin(), out.end());
 
     for (vector<int>::iterator iter = out.begin(); iter != out.end(); iter++)
         outFile << *iter << endl;
