@@ -14,13 +14,13 @@ int main() {
                 arr[get_random_number()]++;
 
             for (int j = 0; j < 365; j++)
-                if (arr[j] > 1){
+                if (arr[j] > 1) {
                     sum++;
                     break;
                 }
             memset(arr, 0, sizeof(arr));
         }
-        cout << i << " " << sum/5000 << endl;
+        cout << i << " " << sum / 5000 << endl;
     }
     return 0;
 }

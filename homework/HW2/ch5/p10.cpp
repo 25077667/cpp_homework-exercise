@@ -24,7 +24,7 @@ int main() {
         i = 0;
         string name;
         int amount;
-        cout << "The product remain in the stock "<<endl;
+        cout << "The product remain in the stock " << endl;
         for (iter = table.begin(); iter != table.end(); iter++)
             cout << ++i << "\t" << (iter->second) << endl;
         cout << "Choose ypou like! (\'product name\' amount): ";
@@ -42,8 +42,8 @@ int main() {
         }
 
     } while (cout << "keep selecting? (y/n)" && cin >> tmp && tmp == 'y');
-    cout<<"your cart"<<endl;
+    cout << "your cart" << endl;
     for (iter = cart.begin(); iter != cart.end(); iter++)
-        cout<<iter->first<<"\t"<<iter->second<<endl;
+        cout << iter->first << "\t" << iter->second << endl;
     return 0;
 }

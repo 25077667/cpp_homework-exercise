@@ -27,10 +27,10 @@ int main() {
         }
     }
     cout << "the closest reviewer is number " << recorder << endl
-         << "Predictions for movies you have not yet seen:"<<endl;
+         << "Predictions for movies you have not yet seen:" << endl;
     for (int i = 0; i < 6; i++) {
         if (user_prefer[i] == 0)
-            cout << "Movie "<<i+100<<" : Predicted Rating = "<<table[recorder][i]<<endl;
+            cout << "Movie " << i + 100 << " : Predicted Rating = " << table[recorder][i] << endl;
     }
 
     return 0;

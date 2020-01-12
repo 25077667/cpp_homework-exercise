@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 void inputFile() {
-    ifstream file;
-    file.open("Data.txt");
+    ifstream file("Data.txt", ios::in);
     int arr[10] = {0};
     string rawData;
     unsigned int len = 0;
