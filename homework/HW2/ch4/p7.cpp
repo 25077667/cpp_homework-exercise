@@ -5,7 +5,7 @@ void output(int kg, int g) {
 }
 void calculating(int pounds, int ounces) {
     int weight = pounds * 453.59237 + ounces * 28.3495231;
-    output(weight/1000,weight%1000);
+    output(weight / 1000, weight % 1000);
 }
 void input() {
     int pounds, ounces;
