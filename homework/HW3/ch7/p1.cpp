@@ -11,12 +11,8 @@ class RainbowColor {
     void testColor(char);
     int getColorByName();
     bool nextColorNum();
-    void printInt(int value) {
-        cout << value;
-    }
-    void printChar(char c) {
-        cout << c;
-    }
+    void printInt(int value) { cout << value; }
+    void printChar(char c) { cout << c; }
 };
 int main() {
     RainbowColor rainbowA(1), rainbowB('R');

@@ -3,9 +3,11 @@
 using namespace std;
 int processPizza(vector<Pizza>& current) {
     int sum = 0;
-    for (vector<Pizza>::iterator iter = current.begin(); iter != current.end(); iter++) {
-        sum += (*iter).computePrice();
-        cout << "The pizza is " << (*iter).getSize() << " " << (*iter).getType() << " with " << (*iter).getPepperoniToppings() << " pepperoni toppings and " << (*iter).getCheeseToppings() << " cheese toppings" << endl;
+    for (auto iter : current) {
+        sum += iter.computePrice();
+        cout << "The pizza is " << iter.getSize() << " " << iter.getType()
+             << " with " << iter.getPepperoniToppings() << " pepperoni toppings and "
+             << iter.getCheeseToppings() << " cheese toppings" << endl;
     }
     return sum;
 }
