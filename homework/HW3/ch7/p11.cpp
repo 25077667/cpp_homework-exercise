@@ -3,6 +3,7 @@ using namespace std;
 class Player {
     string name;
     int score;
+
    public:
     Player(string Name, int Score) : name(Name), score(Score) {}
     int getScore() { return score; }

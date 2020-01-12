@@ -6,9 +6,9 @@ int main() {  //want to use map to realize it, but the problem is asking to use 
     cout << "enter each grade and -1 is stop" << endl;
     while (cin >> tmp && tmp != -1)
         input.push_back(tmp);
-    vector<int> statistics((*max_element(input.begin(),input.end())+1), 0);
-    for (vector<int>::iterator iter = input.begin(); iter != input.end(); iter++)
-        statistics[*iter]++;
+    vector<int> statistics((*max_element(input.begin(), input.end()) + 1), 0);
+    for (auto iter : input)
+        statistics[iter]++;
     cout << endl;
     for (vector<int>::iterator iter = statistics.begin(); iter != statistics.end(); iter++) {
         cout << iter - statistics.begin() << " ";
